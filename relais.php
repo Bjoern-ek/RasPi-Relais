@@ -32,16 +32,38 @@
 <?php
 # Checkboxen pruefen
 if (isset($_REQUEST['IOabfragen']))
-	{
-		for($x = 0; $x < 9; $x++) 
-		{	
-			if (isset($_POST["IO$x"])) 
-			{
-			echo "<u>Aktor $x: </u><br/>";
-
+{
+	for($x = 0; $x < 9; $x++) 
+	{	
+		if (isset($_POST["IO$x"])) 
+		{
+		echo "<u>Aktor $x: </u><br/>";
 			}
+	}
+}
+#IO einschalten
+if (isset($_REQUEST['IOsetzen']))
+{
+	for($x = 0; $x < 9; $x++) 
+	{	
+		if (isset($_POST["IO$x"])) 
+		{
+			shell_exec("./set-i2c S $x");
 		}
 	}
+}
+#IO abschalten
+if (isset($_REQUEST['IOloeschen']))
+{
+	for($x = 0; $x < 9; $x++) 
+	{	
+		if (isset($_POST["IO$x"])) 
+		{
+			shell_exec("./set-i2c C $x");
+		}
+}
+
+
 # shell_exec("./set-i2c S 4");
 ?>
 
