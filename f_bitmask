@@ -1,0 +1,59 @@
+setbit()
+{
+        W1=$1
+        W2=$2
+        Y=$W1
+        X=`bytewert $W2`
+        let "A=$W1 & $X"
+        if ! [ $A = $X ]; then
+                let "Y=$W1 ^ $X"
+        fi
+        echo $Y
+}
+
+clrbit()
+{
+        W1=$1
+        W2=$2
+        Y=$W1
+        X=`bytewert $W2`
+        let "A=$W1 & $X"
+        if [ $A = $X ]; then
+                let "Y=$W1 ^ $X"
+        fi
+        echo $Y
+}
+bytewert()
+{
+        W=$1
+                case $W in
+                1)
+                        X=1
+                ;;
+                2)
+                        X=2
+                ;;
+                3)
+                        X=4
+                ;;
+                4)
+                        X=8
+                ;;
+                5)
+                        X=16
+                ;;
+                6)
+                        X=32
+                ;;
+                7)
+                        X=64
+                ;;
+                8)
+                        X=128
+                ;;
+                *)
+                        X=0
+                ;;
+                esac
+        echo $X
+}

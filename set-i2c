@@ -1,0 +1,28 @@
+#!/bin/bash
+
+ADDR=0x38
+PRG="/usr/sbin/i2cset -y 1 $ADDR"
+MW=`/usr/sbin/i2cget -y 1 $ADDR`
+Z=$1
+A=$2
+bytefunc()
+{
+. f_bitmask
+case $Z in
+                S)
+                        Y=`clrbit $MW $A`
+                ;;
+                C)
+                        Y=`setbit $MW $A`
+                ;;
+                *)
+                        echo "falsche Parameter" >> /tmp/heiz.log
+                        exit 0
+                ;;
+esac
+$PRG $Y
+}
+
+
+# do
+bytefunc
