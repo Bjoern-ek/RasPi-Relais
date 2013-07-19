@@ -13,7 +13,7 @@
  <body>
 
 <form action="relais.php" method ="post">
-   <input type="checkbox" name="LED1" value="2">LED 1<br> 
+   <input type="checkbox" name="LED1" value="2">SolarPumpe<br> 
    <input type="checkbox" name="LED2" value="2">LED 2<br> 
    <input type="checkbox" name="LED3" value="2">LED 3<br> 
    <input type="checkbox" name="LED4" value="2">LED 4<br> 
