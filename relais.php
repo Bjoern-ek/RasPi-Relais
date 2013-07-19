@@ -1,13 +1,13 @@
 <html>
  <head>
  <title>
- Raspberry Pi Webserver
+ RasPi HomeAutomation
  </title>
  </head>
 
  <h1>
- <font color="red">
- Raspberry Pi Webserver
+ <font color="green">
+ RasPi Homeautomation
  </font>
  </h1>
  <body>
@@ -68,5 +68,5 @@ if (isset($_REQUEST['IOloeschen']))
 ?>
 
  </body>
- </html>
+</html>
 
