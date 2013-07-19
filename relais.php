@@ -13,14 +13,14 @@
  <body>
 
 <form action="relais.php" method ="post">
-   <input type="checkbox" name="IO1" value="2">SolarPumpe<br> 
+   <input type="checkbox" name="IO1" value="1">SolarPumpe<br> 
    <input type="checkbox" name="IO2" value="2">SolarVentil<br> 
-   <input type="checkbox" name="IO3" value="2">HeizungsPumpe<br> 
-   <input type="checkbox" name="IO4" value="2">KesselPumpe<br> 
-   <input type="checkbox" name="IO5" value="2">WandHzPumpe<br> 
-   <input type="checkbox" name="IO6" value="2">Ventil WW<br> 
-   <input type="checkbox" name="IO7" value="2">Ventil Heizung<br> 
-   <input type="checkbox" name="IO8" value="2">WW-LadePumpe<br> 
+   <input type="checkbox" name="IO3" value="3">HeizungsPumpe<br> 
+   <input type="checkbox" name="IO4" value="4">KesselPumpe<br> 
+   <input type="checkbox" name="IO5" value="5">WandHzPumpe<br> 
+   <input type="checkbox" name="IO6" value="6">Ventil WW<br> 
+   <input type="checkbox" name="IO7" value="7">Ventil Heizung<br> 
+   <input type="checkbox" name="IO8" value="8">WW-LadePumpe<br> 
 <p>
    <input type="Submit" name="Loeschen" value="Loeschen"><br>
    <input type="Submit" name="IOabfragen" value="WerteStatus"><br>
@@ -30,7 +30,19 @@
 </form>
 
 <?php
- shell_exec("./set-i2c S 4");
+# Checkboxen pruefen
+if (isset($_REQUEST['IOabfragen']))
+	{
+		for($x = 0; $x < 9; $x++) 
+		{	
+			if (isset($_POST["IO$x"])) 
+			{
+			echo "<u>Aktor $x: </u><br/>";
+
+			}
+		}
+	}
+# shell_exec("./set-i2c S 4");
 ?>
 
  </body>
