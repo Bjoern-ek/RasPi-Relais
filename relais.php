@@ -61,8 +61,8 @@ if (isset($_REQUEST['IOloeschen']))
 		{
 			shell_exec("./set-i2c C $x");
 		}
+	}
 }
-
 
 # shell_exec("./set-i2c S 4");
 ?>
