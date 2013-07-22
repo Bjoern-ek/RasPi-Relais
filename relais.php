@@ -34,12 +34,10 @@
 if (isset($_REQUEST['IOabfragen']))
 {
 	for($x = 0; $x < 9; $x++) 
-	{	
-		if (isset($_POST["IO$x"])) 
-		{
+	{
 		$wert = shell_exec("i2cget -y 1 0x38");
-		echo "<u>Aktor $x: $wert </u><br/>";
-			}
+		$status1 = $wert AND 1;
+		echo $status1;	
 	}
 }
 #IO einschalten
