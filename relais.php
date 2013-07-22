@@ -37,7 +37,8 @@ if (isset($_REQUEST['IOabfragen']))
 	{	
 		if (isset($_POST["IO$x"])) 
 		{
-		echo "<u>Aktor $x: </u><br/>";
+		$wert = shell_exec("i2cget -y 1 0x38");
+		echo "<u>Aktor $x: $wert </u><br/>";
 			}
 	}
 }
