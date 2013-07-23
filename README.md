@@ -4,6 +4,10 @@ Relais per I2C
 1wire per GPIO4
 
 ueber Webinterface
+----------------------------
+
+20130723
+Ports auslesen hinzugefuegt
 
 20130719
 was geht: Ports markieren und set/unset/abfrage
