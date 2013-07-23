@@ -37,18 +37,19 @@ if (isset($_REQUEST['IOabfragen']))
         $wert = shell_exec("i2cget -y 1 0x38");
         $wert1 = hexdec($wert);
         for ($x=0; $x < 8;$x++)
-{
-        $p=pow(2, $x);
-        $bitmask=($wert1 & $p);
-        if ($bitmask == 0) 
-	{
-        	echo "Port ". $x . " an";
-        	echo "\n\r";
-        }
-        else
-	{
-        	echo "Port " . $x ." aus";
-        	echo "\n\r";
+        {
+                $p=pow(2, $x);
+                $bitmask=($wert1 & $p);
+                if ($bitmask == 0)
+                {
+                        echo "Port ". $x . " an";
+                        echo "\n\r";
+                }
+                else
+                {
+                        echo "Port " . $x ." aus";
+                        echo "\n\r";
+                }
         }
 
 }
