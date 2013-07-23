@@ -32,13 +32,25 @@
 <?php
 # Checkboxen pruefen
 if (isset($_REQUEST['IOabfragen']))
+
 {
-	for($x = 0; $x < 9; $x++) 
+        $wert = shell_exec("i2cget -y 1 0x38");
+        $wert1 = hexdec($wert);
+        for ($x=0; $x < 8;$x++)
+{
+        $p=pow(2, $x);
+        $bitmask=($wert1 & $p);
+        if ($bitmask == 0) 
 	{
-		$wert = shell_exec("i2cget -y 1 0x38");
-		$status1 = $wert AND 1;
-		echo $status1;	
-	}
+        	echo "Port ". $x . " an";
+        	echo "\n\r";
+        }
+        else
+	{
+        	echo "Port " . $x ." aus";
+        	echo "\n\r";
+        }
+
 }
 #IO einschalten
 if (isset($_REQUEST['IOsetzen']))
